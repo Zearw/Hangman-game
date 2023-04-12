@@ -1,38 +1,19 @@
 import { useState } from 'react'
-import { words } from './service/word'
+import { useAnswer } from './hooks/useAnswer'
+import { useHiddenWord } from './hooks/useHiddenWord'
 
 export function App () {
   const [inputUser, setInputUser] = useState('')
-  /* const [word, setWord] = useState()
-
-  useEffect(() => {
-    fetch('https://random-word-api.herokuapp.com/word?lang=es')
-      .then(res => res.json())
-      .then(data => setWord(data))
-      .catch(err => console.log(err))
-  }, []) */
+  const { answer, refreshAnswer } = useAnswer()
+  const { hiddenWord } = useHiddenWord(answer)
 
   const handleSubmit = (event) => {
     event.preventDefault()
   }
 
-  const randomWord = words[Math.floor(Math.random() * words.length)]
-  const hiddenRandomWord = []
-  const amountHiddenLetters = Math.floor(randomWord.length * 0.6)
-  const hiddenIndex = []
-  for (let i = 0; i < amountHiddenLetters; i++) {
-    let aux = Math.floor(Math.random() * randomWord.length)
-    while (hiddenIndex.find(e => e === aux) !== undefined) {
-      aux = Math.floor(Math.random() * randomWord.length)
-    }
-    hiddenIndex[i] = aux
-  }
-  for (let i = 0; i < randomWord.length; i++) {
-    if (hiddenIndex.find(e => e === i) !== undefined) {
-      hiddenRandomWord[i] = '_'
-    } else {
-      hiddenRandomWord[i] = randomWord[i]
-    }
+  const handleChange = (event) => {
+    const newInput = event.target.value
+    setInputUser(newInput)
   }
 
   return (
@@ -44,14 +25,17 @@ export function App () {
       <main>
         <div>
           <h2 style={{ fontSize: ' 54px ' }}>
-            {hiddenRandomWord.join(' ')}
+            {hiddenWord && <p>{hiddenWord}</p>}
           </h2>
         </div>
+
         <form onSubmit={handleSubmit}>
+          <label> Coloque una letra o la palabra entera</label>
           <input
             type='text'
             name='inputUser'
             value={inputUser}
+            onChange={handleChange}
           />
           <button type='submit'> Adivinar palabra </button>
         </form>
