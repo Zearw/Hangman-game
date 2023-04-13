@@ -1,19 +1,24 @@
-import { useState } from 'react'
-import { useAnswer } from './hooks/useAnswer'
+import { useWord } from './hooks/useWord'
 import { useHiddenWord } from './hooks/useHiddenWord'
+import { useErrorInput } from './hooks/useError'
 
 export function App () {
-  const [inputUser, setInputUser] = useState('')
-  const { answer, refreshAnswer } = useAnswer()
+  const { answer, refreshAnswer } = useWord()
   const { hiddenWord } = useHiddenWord(answer)
+  const { error, inputUser, setInputUser } = useErrorInput({ hiddenWord })
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(event.target.value)
   }
 
   const handleChange = (event) => {
     const newInput = event.target.value
+    if (newInput.startsWith(' ')) return
     setInputUser(newInput)
+  }
+  const handleClick = async () => {
+    refreshAnswer()
   }
 
   return (
@@ -27,6 +32,7 @@ export function App () {
           <h2 style={{ fontSize: ' 54px ' }}>
             {hiddenWord && <p>{hiddenWord}</p>}
           </h2>
+          <button onClick={handleClick}> Cambiar palabra </button>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -39,6 +45,7 @@ export function App () {
           />
           <button type='submit'> Adivinar palabra </button>
         </form>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </main>
     </>
   )

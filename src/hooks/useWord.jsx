@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getRandomWord } from '../service/word'
 
-export function useAnswer () {
+export function useWord () {
   const [answer, setAnswer] = useState()
 
   const refreshAnswer = () => {
