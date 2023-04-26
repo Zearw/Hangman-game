@@ -10,6 +10,10 @@ export function useErrorInput ({ hiddenWord }) {
       isFirstInput.current = inputUser === ''
       return
     }
+    if (inputUser === ' ') {
+      setError('No puede enviar un espacio')
+      return
+    }
     if (inputUser.length > hiddenWord.length) {
       setError('La respuesta tiene mas letras que la palabra escondida')
       return

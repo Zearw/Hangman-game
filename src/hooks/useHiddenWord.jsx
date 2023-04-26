@@ -21,9 +21,9 @@ export function useHiddenWord (answer) {
           hiddenRandomWord[i] = answer[i]
         }
       }
-      const ansStr = hiddenRandomWord.join(' ')
+      const ansStr = hiddenRandomWord.join('')
       sethiddenWord(ansStr)
     }
   }, [answer])
-  return { hiddenWord }
+  return { hiddenWord, sethiddenWord }
 }
