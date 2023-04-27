@@ -7,7 +7,7 @@ export function useEntry ({ inputcheck, hiddenWord, answer, sethiddenWord, setBu
 
   useEffect(() => {
     if (attemps === 0) {
-      setResult('¡Perdiste! Se te acabaron los intentos. ')
+      setResult('¡Perdiste! Se te acabaron los intentos.  La palabra correcta era: ' + answer)
       setButtonSendInfo(true)
     }
   }, [attemps])
@@ -17,7 +17,7 @@ export function useEntry ({ inputcheck, hiddenWord, answer, sethiddenWord, setBu
       if (inputcheck.length === 1) {
         const aux = []
         for (let i = 0; i < answer.length; i++) {
-          if (inputcheck === answer[i]) {
+          if (inputcheck === answer[i] && hiddenWord[i] === '_') {
             aux[i] = inputcheck
             acerto = true
           } else {
