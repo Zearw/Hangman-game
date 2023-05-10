@@ -1,0 +1,11 @@
+import { Header } from '../components/Header/Header'
+import { Main } from '../components/Main/Main'
+
+export function Layout () {
+  return (
+    <>
+      <Header />
+      <Main />
+    </>
+  )
+}

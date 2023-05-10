@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 
-export function useHiddenWord (answer) {
+export function useHiddenWord ({ answer }) {
   const [hiddenWord, sethiddenWord] = useState('')
+
   useEffect(() => {
     if (answer) {
       const hiddenRandomWord = []
