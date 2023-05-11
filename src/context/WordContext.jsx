@@ -4,7 +4,6 @@ import { useHiddenWord } from '../hooks/useHiddenWord'
 import { useErrorInput } from '../hooks/useError'
 import { useHandleInput } from '../hooks/useHandleInput'
 import { useHandleAttemps } from '../hooks/useHandleAttemps'
-import { useHandleResult } from '../hooks/useHandleResult'
 
 const WordContext = createContext([])
 
@@ -14,9 +13,8 @@ export function WordProvider ({ children }) {
   const { answer, refreshAnswer } = useWord()
   const { hiddenWord, sethiddenWord } = useHiddenWord({ answer })
   const { error, inputUser, setInputUser } = useErrorInput({ hiddenWord })
-  const { indices } = useHandleInput({ answer, inputCheck })
-  const { attemps, success, setAttemps } = useHandleAttemps({ indices, hiddenWord, sethiddenWord, answer })
-  const { result, setResult } = useHandleResult({ attemps, success })
+  const { checkWord } = useHandleInput({ answer, inputCheck, hiddenWord, sethiddenWord })
+  const { attemps, setAttemps, result, setResult } = useHandleAttemps({ checkWord, setButtonSendInfo })
 
   const reset = async () => {
     refreshAnswer()

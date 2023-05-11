@@ -1,32 +1,30 @@
 import { useEffect, useState } from 'react'
 
-export function useHandleAttemps ({ indices, hiddenWord, sethiddenWord }) {
+export function useHandleAttemps ({ checkWord, setButtonSendInfo }) {
   const [attemps, setAttemps] = useState(6)
-  let acerto = false
-  let success = false
-
+  const [result, setResult] = useState('')
+  const [auxCheck, setauxCheck] = useState('')
   useEffect(() => {
-    if (indices.length > 0) {
-      let aux = []
-      console.log(indices)
-      if (indices[0] === 'complete') {
-        success = true
-        acerto = true
-        aux = indices[1]
-        sethiddenWord(aux)
-      } else if (indices[0] !== 'complete' && indices[0] !== 'failed') {
-        console.log('adentro 2')
-        for (let i = 0; i < indices.length; i++) {
-          if (hiddenWord[indices[i]] === '_') {
-            acerto = true
-          }
-        }
-      } else if (acerto === false || indices[0] === 'failed') {
+    if (checkWord.length > 0) {
+      if (checkWord[1] !== undefined) {
+        setauxCheck(checkWord[1])
+      }
+      if (checkWord[0] === 'failed') {
         setAttemps(attemps - 1)
-        console.log('adentro 3')
+      }
+      if (checkWord[0] === 'complete') {
+        setResult('Congratulations, you guessed the word!')
+        setButtonSendInfo(true)
       }
     }
-  }, [indices])
+  }, [checkWord])
 
-  return { attemps, success, setAttemps }
+  useEffect(() => {
+    if (attemps === 0) {
+      setResult('You lost! You\'ve run out of tries. The correct word was: ' + auxCheck)
+      setButtonSendInfo(true)
+    }
+  }, [attemps])
+
+  return { attemps, setAttemps, result, setResult }
 }

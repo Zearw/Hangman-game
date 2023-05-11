@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import WordContext from '../../context/WordContext'
 
 export function SecretWord () {
-  const { hiddenWord, attemps, reset } = useContext(WordContext)
+  const { hiddenWord, attemps, reset, result } = useContext(WordContext)
 
   const handleClick = (e) => {
     reset()
@@ -21,6 +21,7 @@ export function SecretWord () {
         </div>
       </div>
       <div className='remaining_Attempts'><p> Intentos restantes {attemps}</p></div>
+      {result && <p>{result}</p>}
     </div>
   )
 }
