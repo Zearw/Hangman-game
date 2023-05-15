@@ -1,0 +1,27 @@
+.grid_letters {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  margin-bottom: 10px;
+}
+
+.letter {
+  font-size: 30px;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px white solid;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.letter_used {
+  font-size: 30px;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 1px white solid;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+}

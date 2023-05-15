@@ -1,0 +1,108 @@
+{
+  "letters" : [ 
+  {
+    "letter": "a",
+    "checked": false
+  },
+  {
+    "letter": "b",
+    "checked": false
+  },
+  {
+    "letter": "c",
+    "checked": false
+  },
+  {
+    "letter": "d",
+    "checked": false
+  },
+  {
+    "letter": "e",
+    "checked": false
+  },
+  {
+    "letter": "f",
+    "checked": false
+  },
+  {
+    "letter": "g",
+    "checked": false
+  },
+  {
+    "letter": "h",
+    "checked": false
+  },
+  {
+    "letter": "i",
+    "checked": false
+  },
+  {
+    "letter": "j",
+    "checked": false
+  },
+  {
+    "letter": "k",
+    "checked": false
+  },
+  {
+    "letter": "l",
+    "checked": false
+  },
+  {
+    "letter": "m",
+    "checked": false
+  },
+  {
+    "letter": "n",
+    "checked": false
+  },
+  {
+    "letter": "o",
+    "checked": false
+  },
+  {
+    "letter": "p",
+    "checked": false
+  },
+  {
+    "letter": "q",
+    "checked": false
+  },
+  {
+    "letter": "r",
+    "checked": false
+  },
+  {
+    "letter": "s",
+    "checked": false
+  },
+  {
+    "letter": "t",
+    "checked": false
+  },
+  {
+    "letter": "u",
+    "checked": false
+  },
+  {
+    "letter": "v",
+    "checked": false
+  },
+  {
+    "letter": "w",
+    "checked": false
+  },
+  {
+    "letter": "x",
+    "checked": false
+  },
+  {
+    "letter": "y",
+    "checked": false
+  },
+  {
+    "letter": "z",
+    "checked": false
+  }
+]
+}

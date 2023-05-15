@@ -28,7 +28,7 @@ export function WordProvider ({ children }) {
   }
 
   const modifyInput = (e) => {
-    const newInput = e.target.value
+    const newInput = (e.target.value).toLowerCase()
     if (newInput.startsWith(' ')) return
     setInputUser(newInput)
   }

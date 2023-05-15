@@ -34,7 +34,7 @@ export function useHandleInput ({ answer, inputCheck, hiddenWord, sethiddenWord 
     }
   }, [inputCheck])
 
-  if (hiddenWord.length > 0 && hiddenWord.includes('_') === false) {
+  if (hiddenWord.length > 0 && hiddenWord.indexOf('_') === -1) {
     checkWord.push('complete')
   }
   return { checkWord }
