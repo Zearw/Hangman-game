@@ -4,6 +4,7 @@ import { useHiddenWord } from '../hooks/useHiddenWord'
 import { useErrorInput } from '../hooks/useError'
 import { useHandleInput } from '../hooks/useHandleInput'
 import { useHandleAttemps } from '../hooks/useHandleAttemps'
+import { letters } from '../service/letters.json'
 
 const WordContext = createContext([])
 
@@ -17,10 +18,15 @@ export function WordProvider ({ children }) {
   const { attemps, setAttemps, result, setResult } = useHandleAttemps({ checkWord, setButtonSendInfo })
 
   const reset = async () => {
+    setInputCheck('')
     refreshAnswer()
     setAttemps(6)
     setResult('')
     setButtonSendInfo(false)
+    letters.forEach(letter => {
+      letter.checked = false
+    }
+    )
   }
 
   const configInputUser = (inputUser) => {

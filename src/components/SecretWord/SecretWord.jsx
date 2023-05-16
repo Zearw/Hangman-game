@@ -19,6 +19,7 @@ export function SecretWord () {
             {hiddenWord && <p className='guessWord'>{hiddenWord}</p>}
           </h2>
           <button className='refresh' onClick={handleClick}> <span> <img src='./images/arrow-repeat.svg' /></span> </button>
+          <img className='img_ahorcado' src={`./images/ahorcado/Ahorcado${attemps}.png`} />
         </div>
       </div>
       <div>
