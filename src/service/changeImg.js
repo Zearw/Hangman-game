@@ -1,5 +1,0 @@
-
-export function changeImg () {
-  
-  return ( )
-}
