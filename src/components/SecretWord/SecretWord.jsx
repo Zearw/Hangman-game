@@ -18,15 +18,15 @@ export function SecretWord () {
           <h2 className='hiddenWord'>
             {hiddenWord && <p className='guessWord'>{hiddenWord}</p>}
           </h2>
-          <button className='refresh' onClick={handleClick}> <span> <img src='./images/arrow-repeat.svg' /></span> </button>
-          <img className='img_ahorcado' src={`./images/ahorcado/Ahorcado${attemps}.png`} />
+          <div><button className='refresh' onClick={handleClick}><img src='./images/arrow-repeat.svg' /></button></div>
+          <div><img className='img_ahorcado' src={`./images/ahorcado/Ahorcado${attemps}.png`} /></div>
         </div>
       </div>
       <div>
-        <div className='remaining_Attempts'><p> Intentos restantes {attemps}</p></div>
         <Letters />
+        <div className='remaining_Attempts'><p> Intentos restantes {attemps}</p></div>
       </div>
-      {result && <p>{result}</p>}
+      {result && <p className='result'>{result}</p>}
     </div>
   )
 }

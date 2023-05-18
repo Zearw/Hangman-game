@@ -1,3 +1,4 @@
+import './Form.css'
 import { useContext } from 'react'
 import WordContext from '../../context/WordContext'
 

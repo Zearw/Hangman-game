@@ -1,7 +1,8 @@
+import './Header.css'
 export function Header () {
   return (
     <header>
-      <h1> Juego del ahorcado</h1>
+      <h1>Hangman game</h1>
     </header>
 
   )
