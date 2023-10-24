@@ -11,19 +11,19 @@ export function useErrorInput ({ hiddenWord }) {
       return
     }
     if (inputUser === ' ') {
-      setError('No puede enviar un espacio')
+      setError('You cannot send a space')
       return
     }
     if (inputUser.length > hiddenWord.length) {
-      setError('La respuesta tiene mas letras que la palabra escondida')
+      setError('The answer has more letters than the hidden word')
       return
     }
     if (inputUser.length < hiddenWord.length && inputUser.length > 1) {
-      setError('La respuesta debe ser una letra o la palabra completa')
+      setError('The answer must be a letter or the whole word.')
       return
     }
     if (inputUser.match(/[0-9]/)) {
-      setError('No se aceptan números')
+      setError('No numbers accepted')
       return
     }
     return setError(null)
