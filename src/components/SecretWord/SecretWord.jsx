@@ -24,7 +24,7 @@ export function SecretWord () {
       </div>
       <div>
         <Letters />
-        <div className='remaining_Attempts'><p> Intentos restantes {attemps}</p></div>
+        <div className='remaining_Attempts'><p> Remaining attempts {attemps}</p></div>
       </div>
       {result && <p className='result'>{result}</p>}
     </div>

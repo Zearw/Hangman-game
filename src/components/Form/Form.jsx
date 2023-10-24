@@ -15,7 +15,7 @@ export function Form () {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label> Coloque una letra o la palabra entera</label>
+      <label>Enter a letter or the whole word</label>
       <input
         autoFocus
         type='text'
@@ -26,7 +26,7 @@ export function Form () {
       />
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
-        <button disabled={buttonSendInfo} type='submit'> Adivinar palabra </button>
+        <button disabled={buttonSendInfo}> Guess word </button>
       </div>
     </form>
   )

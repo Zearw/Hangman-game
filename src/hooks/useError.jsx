@@ -22,8 +22,8 @@ export function useErrorInput ({ hiddenWord }) {
       setError('La respuesta debe ser una letra o la palabra completa')
       return
     }
-    if (inputUser.match(/^\d+$/)) {
-      setError('No se puede buscar una película con un número')
+    if (inputUser.match(/[0-9]/)) {
+      setError('No se aceptan números')
       return
     }
     return setError(null)
